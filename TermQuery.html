@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: BoolFilter</title>
+    <title>JSDoc: Class: TermQuery</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Class: BoolFilter</h1>
+    <h1 class="page-title">Class: TermQuery</h1>
 
     
 
@@ -30,10 +30,10 @@
 <header>
     
         <h2>
-        BoolFilter
+        TermQuery
         </h2>
         
-            <div class="class-description"><p>ElasticSearch Bool filter.</p></div>
+            <div class="class-description"><p>Elastic Term query for not analyzed fields.</p></div>
         
     
 </header>
@@ -47,7 +47,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="BoolFilter"><span class="type-signature"></span>new BoolFilter<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TermQuery"><span class="type-signature"></span>new TermQuery<span class="signature">(field, query)</span><span class="type-signature"></span></h4>
 
     
 
@@ -59,6 +59,78 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>field</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Field to match against.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Query to match againt.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -94,7 +166,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="filters_boolFilter.js.html">filters/boolFilter.js</a>, <a href="filters_boolFilter.js.html#line10">line 10</a>
+        <a href="queries_termQuery.js.html">queries/termQuery.js</a>, <a href="queries_termQuery.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -122,17 +194,6 @@
 
     
     </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="Filter.html">Filter</a></li>
-    </ul>
-
 
     
 
@@ -166,10 +227,10 @@
 <header>
     
         <h2>
-        BoolFilter
+        TermQuery
         </h2>
         
-            <div class="class-description"><p>ElasticSearch Bool filter.</p></div>
+            <div class="class-description"><p>Elastic Term query for not analyzed fields.</p></div>
         
     
 </header>
@@ -183,7 +244,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="BoolFilter"><span class="type-signature"></span>new BoolFilter<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="TermQuery"><span class="type-signature"></span>new TermQuery<span class="signature">(field, query)</span><span class="type-signature"></span></h4>
 
     
 
@@ -195,6 +256,78 @@
 
 
 
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>field</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Field to match against.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>query</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Query to match againt.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
 
 
 
@@ -230,7 +363,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="filters_boolFilter.js.html">filters/boolFilter.js</a>, <a href="filters_boolFilter.js.html#line10">line 10</a>
+        <a href="queries_termQuery.js.html">queries/termQuery.js</a>, <a href="queries_termQuery.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -258,17 +391,6 @@
 
     
     </div>
-
-    
-        <h3 class="subsection-title">Extends</h3>
-
-        
-
-
-    <ul>
-        <li><a href="Filter.html">Filter</a></li>
-    </ul>
-
 
     
 
