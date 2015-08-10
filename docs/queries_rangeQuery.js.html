@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: aggregations/filteredAgg.js</title>
+    <title>JSDoc: Source: queries/rangeQuery.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -18,7 +18,7 @@
 <div id="main">
 
 
-    <h1 class="page-title">Source: aggregations/filteredAgg.js</h1>
+    <h1 class="page-title">Source: queries/rangeQuery.js</h1>
 
     
 
@@ -28,55 +28,73 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>'use strict';
-var Aggregation = require('./aggregation');
-var util = require('../util');
+var _ = require('lodash');
+
 /**
- * @class Elastic Filtered Aggregation.
- * 
- * {@link http://www.elastic.co/guide/en/elasticsearch/reference/1.x/search-aggregations-bucket-filter-aggregation.html|link}
- * @augments {Aggregation}
- * Top level object will contain an 'aggs' and 'filter'.
- * @param {Aggregation} innerAgg        Aggregation object to be filtered.
- * @param {Filter|obj}  innerFilter     Filter object to apply to the innerAgg.
- * @param {string}      innerAggname    innerAgg name. Defaults to filteredAggName.
- * 
- * @todo: Inherit from Aggregation using node util when prototype funcs needed.
- */
-function FilteredAgg(innerAgg, innerFilter, innerAggName) {
-  if (!(innerAgg instanceof Aggregation)) {
-    throw new Error('Inner aggregation must be an Aggregation object');
+ * @class Elastic Range query.
+ * @param {string}  field  Field to range against.
+ */       
+function RangeQuery(field) {
+  if (!field) {
+    throw new Error('Range query requires a field.');
   }
 
-  if (!innerFilter) {
-    throw new Error('Inner filter must be provided');
-  }
-
-  innerAggName = innerAggName || innerAgg.getName();
-
-  if (!innerAggName) {
-    throw new Error('innerAggName must be provided as a parameter or assigned to the aggregation');
-  }
-
-  this.aggs = {};
-  this.aggs[innerAggName] = innerAgg;
-
-  this.filter = innerFilter;
-  util.createNonEnumerableProperty(this, '_root', innerAgg._root);
-  util.createNonEnumerableProperty(this, '_innerAgg', innerAgg);
+  this.range = {};
+  this.range[field] = {};
 }
 
-FilteredAgg.prototype = Object.create(Aggregation.prototype);
-FilteredAgg.prototype.constructor = FilteredAgg;
-
 /**
- * Get the name of the aggregation object.
- * @return {string} Name of aggregation. Defers to innerAgg object.
+ * Set less than/ equal to.
+ * @param  {any} value
  */
-FilteredAgg.prototype.getName = function getFilteredName() {
-  return this._name || this._innerAgg.getName();
+RangeQuery.prototype.lte = function lte(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].lte = value;
+  return this;
 };
 
-module.exports = FilteredAgg;</code></pre>
+/**
+ * Set greater than/ equal to.
+ * @param  {any} value
+ */
+RangeQuery.prototype.gte = function gte(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].gte = value;
+  return this;
+};
+
+/**
+ * Set less than.
+ * @param  {any} value
+ */
+RangeQuery.prototype.lt = function lt(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].lt = value;
+  return this;
+};
+
+/**
+ * Set greater than.
+ * @param  {any} value
+ */
+RangeQuery.prototype.gt = function gt(value) {
+  var field = _.keys(this.range)[0];
+  this.range[field].gt = value;
+  return this;
+};
+
+/**
+ * Set query boost.
+ * @param {number} boostFactor Number, string representation
+ *                             of number, or undefined to unset.
+ */
+RangeQuery.prototype.setBoost = function setBoost(boostFactor) {
+  var field = _.keys(this.range)[0];
+  this.range[field].boost = boostFactor;
+  return this;
+}
+
+module.exports = RangeQuery;</code></pre>
         </article>
     </section>
 
